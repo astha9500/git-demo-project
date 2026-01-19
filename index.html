@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DSA Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>DSA Methods Practice</h1>
+
+<div class="container">
+
+    <h2>Array Operations</h2>
+    <button onclick="arrayTraversal()">Array Traversal</button>
+    <button onclick="arraySearch()">Linear Search</button>
+    <pre id="arrayOutput"></pre>
+
+    <h2>Stack Operations</h2>
+    <button onclick="stackPush()">Push</button>
+    <button onclick="stackPop()">Pop</button>
+    <pre id="stackOutput"></pre>
+
+    <h2>Sorting</h2>
+    <button onclick="bubbleSort()">Bubble Sort</button>
+    <pre id="sortOutput"></pre>
+
+</div>
+
+<script>
+    // Array
+    let arr = [10, 20, 30, 40, 50];
+
+    function arrayTraversal() {
+        document.getElementById("arrayOutput").textContent =
+            "Array: " + arr.join(", ");
+    }
+
+    function arraySearch() {
+        let target = 30;
+        let index = arr.indexOf(target);
+        document.getElementById("arrayOutput").textContent =
+            index !== -1 ? `Found ${target} at index ${index}` : "Not Found";
+    }
+
+    // Stack
+    let stack = [];
+
+    function stackPush() {
+        stack.push(Math.floor(Math.random() * 100));
+        document.getElementById("stackOutput").textContent =
+            "Stack: " + stack.join(", ");
+    }
+
+    function stackPop() {
+        stack.pop();
+        document.getElementById("stackOutput").textContent =
+            "Stack: " + stack.join(", ");
+    }
+
+    // Sorting
+    function bubbleSort() {
+        let nums = [5, 1, 4, 2, 8];
+        for (let i = 0; i < nums.length; i++) {
+            for (let j = 0; j < nums.length - i - 1; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    let temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                }
+            }
+        }
+        document.getElementById("sortOutput").textContent =
+            "Sorted: " + nums.join(", ");
+    }
+</script>
+
+</body>
+</html>
